@@ -9,7 +9,7 @@ const siteUrl = getSiteUrl();
  * This is the SINGLE SOURCE OF TRUTH for entity data.
  * All JSON-LD schemas must reference this entity.
  * 
- * @id: https://yourdomain.com/#campaigne
+ * @id: https://camrynjackson.com/#campaigne
  */
 export const ENTITY = {
   "@type": "Person" as const,

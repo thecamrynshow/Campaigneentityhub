@@ -74,7 +74,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans">
         {/* Global Person Entity Schema - Single Source of Truth */}
-        {/* @id: https://yourdomain.com/#campaigne */}
+        {/* @id: https://camrynjackson.com/#campaigne */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}

@@ -3,6 +3,6 @@ export function cn(...classes: (string | undefined | null | false)[]): string {
 }
 
 export function getSiteUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
+  return process.env.NEXT_PUBLIC_SITE_URL || "https://camrynjackson.com";
 }
 

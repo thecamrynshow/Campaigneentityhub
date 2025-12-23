@@ -7,7 +7,7 @@ const websiteId = `${siteUrl}#website`;
 
 /**
  * Person Schema - Uses centralized ENTITY data
- * @id: https://yourdomain.com/#campaigne
+ * @id: https://camrynjackson.com/#campaigne
  */
 export function getPersonSchema() {
   return {

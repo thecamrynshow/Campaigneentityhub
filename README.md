@@ -63,10 +63,10 @@ npm install
 Create a `.env.local` file in the root directory:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+NEXT_PUBLIC_SITE_URL=https://camrynjackson.com
 ```
 
-**Important**: Replace `https://yourdomain.com` with your actual domain. This is used for:
+**Important**: This domain is used for:
 - Canonical URLs
 - Open Graph images
 - Structured data (JSON-LD) @id anchors
@@ -215,7 +215,7 @@ Edit `src/content/works.ts` and add a new entry to the `works` array:
 - **App Pages**: SoftwareApplication schema with creator reference
 - **Photos Page**: ImageObject schemas per image
 
-All schemas use `@id` anchors for entity linking (e.g., `https://yourdomain.com#person`).
+All schemas use `@id` anchors for entity linking (e.g., `https://camrynjackson.com#campaigne`).
 
 ### Metadata
 
@@ -238,8 +238,8 @@ Before going live, ensure:
 - [ ] Create and upload `og-default.jpg` (1200x630px) for Open Graph
 - [ ] Test all pages load correctly
 - [ ] Verify structured data with [Google Rich Results Test](https://search.google.com/test/rich-results)
-- [ ] Submit sitemap to Google Search Console: `https://yourdomain.com/sitemap.xml`
-- [ ] Verify robots.txt: `https://yourdomain.com/robots.txt`
+- [ ] Submit sitemap to Google Search Console: `https://camrynjackson.com/sitemap.xml`
+- [ ] Verify robots.txt: `https://camrynjackson.com/robots.txt`
 - [ ] Test Open Graph previews with [Open Graph Debugger](https://www.opengraph.xyz/)
 - [ ] Check mobile responsiveness
 - [ ] Verify all images load correctly
@@ -285,6 +285,6 @@ Private project - All rights reserved.
 
 ## Support
 
-For questions or issues, contact: contact@yourdomain.com
+For questions or issues, contact: camryncjackson@gmail.com
 
 # Campaigneentityhub
