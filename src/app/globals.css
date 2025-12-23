@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-white antialiased;
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3.5 bg-brand-gold text-black rounded-md font-semibold 
+           transition-all duration-300 hover:bg-brand-gold/90 hover:scale-105 
+           focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-2 
+           focus:ring-offset-black shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-3.5 border-2 border-brand-gold text-brand-gold rounded-md 
+           font-semibold transition-all duration-300 hover:bg-brand-gold/10 
+           hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-gold 
+           focus:ring-offset-2 focus:ring-offset-black;
+  }
+  
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+  
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
