@@ -19,12 +19,14 @@ export const ENTITY = {
   image: `${siteUrl}/images/photos/Campaigne - Headshot.JPG`, // Recommended: rename to camryn-jackson-campaigne-portrait.jpg for disambiguation
   sameAs: getSortedSocialLinks().map((link) => link.url).concat([
     "https://tr.ee/V7UH3N3M74", // Linktree
+    "https://www.imdb.com/name/nm13817235/", // IMDb
   ]),
   jobTitle: [
     "Artist",
     "Author",
     "Musician",
     "Filmmaker",
+    "Actor",
     "App Developer",
   ],
   worksFor: {

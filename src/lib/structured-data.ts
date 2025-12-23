@@ -202,3 +202,25 @@ export function getImageObjectSchema(imageUrl: string, caption?: string) {
   };
 }
 
+/**
+ * Movie schema for film credits
+ */
+export function getMovieSchema(movie: {
+  name: string;
+  datePublished: string;
+  url: string;
+  imdbUrl: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Movie",
+    name: movie.name,
+    datePublished: movie.datePublished,
+    url: movie.url,
+    actor: {
+      "@id": ENTITY_ID,
+    },
+    sameAs: [movie.imdbUrl],
+  };
+}
+

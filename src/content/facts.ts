@@ -17,6 +17,7 @@ export const FACTS = {
     "Artist",
     "Author",
     "Filmmaker",
+    "Actor",
     "Software Developer",
   ],
   nationality: "American",
