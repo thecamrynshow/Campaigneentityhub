@@ -13,13 +13,14 @@ import { getSortedSocialLinks } from "@/src/lib/social-links";
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Entering a Kingdom",
+  title: "Campaigne - Entering a Kingdom",
   description:
-    "Welcome to the official entity hub for Camryn Jackson (Campaigne). Discover books, music, apps, and creative works that transcend boundaries.",
+    "Campaigne - Official entity hub for Camryn Jackson (Campaigne). Discover books, music, apps, and creative works. Search for Campaigne music, Campaigne albums, Campaigne books.",
+  keywords: ["Campaigne", "Campaigne music", "Campaigne artist", "Campaigne albums", "Campaigne books", "Camryn Jackson", "PNEUMA", "Tales of Time", "ORIGEN"],
   openGraph: {
-    title: "Entering a Kingdom | Campaigne",
+    title: "Campaigne - Entering a Kingdom | Official Entity Hub",
     description:
-      "Welcome to the official entity hub for Camryn Jackson (Campaigne). Discover books, music, apps, and creative works.",
+      "Campaigne - Official entity hub for Camryn Jackson. Discover books, music, apps, and creative works.",
     url: siteUrl,
   },
   alternates: {
@@ -88,7 +89,7 @@ export default function HomePage() {
             Entering a Kingdom
           </h1>
           <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed max-w-3xl mx-auto font-light relative z-10">
-            Welcome to the official source of truth for releases, images, bios,
+            Welcome to Campaigne - the official source of truth for releases, images, bios,
             and links from Camryn Jackson (Campaigne). A curated collection of
             books, music, apps, and creative works that transcend boundaries.
           </p>

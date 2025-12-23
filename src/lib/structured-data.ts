@@ -43,7 +43,8 @@ export function getWebSiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": websiteId,
-    name: "Campaigne",
+    name: "Campaigne - Camryn Jackson Official Entity Hub",
+    alternateName: "Campaigne",
     url: siteUrl,
     publisher: {
       "@id": ENTITY_ID,

@@ -17,11 +17,11 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Camryn Jackson | Campaigne - Official Entity Hub",
+    default: "Campaigne | Camryn Jackson - Official Entity Hub",
     template: "%s | Campaigne",
   },
-  description: "Official source for releases, images, bios, and links from Camryn Jackson (Campaigne). Books, music, apps, and more.",
-  keywords: ["Camryn Jackson", "Campaigne", "author", "musician", "app developer", "filmmaker"],
+  description: "Campaigne - Official source for releases, images, bios, and links from Camryn Jackson (Campaigne). Books, music, apps, and creative works.",
+  keywords: ["Campaigne", "Camryn Jackson", "Campaigne music", "Campaigne artist", "Campaigne author", "author", "musician", "app developer", "filmmaker"],
   authors: [{ name: "Camryn Jackson", url: siteUrl }],
   creator: "Camryn Jackson",
   openGraph: {
