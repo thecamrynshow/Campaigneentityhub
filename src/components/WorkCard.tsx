@@ -11,9 +11,17 @@ interface WorkCardProps {
 }
 
 export default function WorkCard({ work, className }: WorkCardProps) {
+  // Map work types to correct routes
+  const getWorkRoute = (type: string, slug: string) => {
+    if (type === "album") return `/music/${slug}`;
+    if (type === "book") return `/books/${slug}`;
+    if (type === "app") return `/apps/${slug}`;
+    return `/${type}s/${slug}`;
+  };
+
   return (
     <Link
-      href={`/${work.type}s/${work.slug}`}
+      href={getWorkRoute(work.type, work.slug)}
       className={cn(
         "group block relative overflow-hidden rounded-xl transition-all duration-500 border-2 border-transparent",
         "hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black",
