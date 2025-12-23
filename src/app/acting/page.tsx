@@ -47,6 +47,18 @@ export default function ActingPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           {/* Hero */}
           <section className="mb-20 text-center">
+            <div className="mb-8 flex justify-center">
+              <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-brand-gold/30 shadow-2xl">
+                <Image
+                  src="/images/photos/Camryn Jackson Headshot.JPG"
+                  alt="Camryn Jackson, actor and filmmaker"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 192px, 256px"
+                  priority
+                />
+              </div>
+            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-brand-gold font-serif tracking-tight">
               Acting & Film
             </h1>
