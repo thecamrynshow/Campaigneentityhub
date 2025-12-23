@@ -20,6 +20,7 @@ export default function LatestReleaseCard({ work, className }: LatestReleaseCard
         className
       )}
       style={{
+        background: `linear-gradient(135deg, ${work.theme.bg} 0%, ${work.theme.accent2} 100%)`,
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
       }}
       onMouseEnter={(e) => {
@@ -29,9 +30,6 @@ export default function LatestReleaseCard({ work, className }: LatestReleaseCard
       onMouseLeave={(e) => {
         e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.3)";
         e.currentTarget.style.borderColor = "transparent";
-      }}
-      style={{
-        background: `linear-gradient(135deg, ${work.theme.bg} 0%, ${work.theme.accent2} 100%)`,
       }}
       aria-label={`View ${work.title}`}
     >
