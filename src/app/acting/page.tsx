@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { getSiteUrl } from "@/src/lib/utils";
 import { getWebPageSchema, getMovieSchema } from "@/src/lib/structured-data";
 import { ENTITY_ID } from "@/src/content/entity";
@@ -83,6 +84,35 @@ export default function ActingPage() {
                 >
                   View on IMDb
                 </a>
+              </div>
+            </div>
+          </section>
+
+          {/* Photos */}
+          <section className="mb-20">
+            <h2 className="text-3xl font-bold mb-8 text-brand-gold font-serif">
+              Photos
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="relative aspect-square rounded-xl overflow-hidden group shadow-2xl">
+                <Image
+                  src="/images/photos/Bonus Triip.jpg"
+                  alt="Bonus Trip - Film still"
+                  fill
+                  className="object-cover transition-all duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              </div>
+              <div className="relative aspect-square rounded-xl overflow-hidden group shadow-2xl">
+                <Image
+                  src="/images/photos/Camryn Jackson and Bonus Trip cast at Premiere.JPG"
+                  alt="Camryn Jackson and Bonus Trip cast at Premiere"
+                  fill
+                  className="object-cover transition-all duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               </div>
             </div>
           </section>

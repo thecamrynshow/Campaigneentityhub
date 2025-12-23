@@ -86,6 +86,16 @@ const photos = [
     alt: "144: A New Dawn Album Cover",
     caption: "144: A New Dawn Album Cover",
   },
+  {
+    src: "/images/photos/Bonus Triip.jpg",
+    alt: "Bonus Trip - Film still",
+    caption: "Bonus Trip",
+  },
+  {
+    src: "/images/photos/Camryn Jackson and Bonus Trip cast at Premiere.JPG",
+    alt: "Camryn Jackson and Bonus Trip cast at Premiere",
+    caption: "Camryn Jackson and Bonus Trip cast at Premiere",
+  },
 ];
 
 export default function PhotosPage() {
