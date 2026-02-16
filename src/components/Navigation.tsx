@@ -15,6 +15,7 @@ export default function Navigation() {
     { href: "/music", label: "Music" },
     { href: "/apps", label: "Apps" },
     { href: "/acting", label: "Acting" },
+    { href: "/wrestling", label: "Wrestling" },
     { href: "/press", label: "Press" },
     { href: "/photos", label: "Photos" },
     { href: "/contact", label: "Contact" },
