@@ -29,7 +29,10 @@ export const FACTS = {
     "144: A New Dawn",
     "PNEUMA: Echoes of Breath",
     "Tales of Time",
+    "The Architecture of Alignment",
     "ORIGEN",
+    "PNEU",
+    "SOVEREIGNTY",
   ],
 };
 
