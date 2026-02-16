@@ -85,7 +85,7 @@ export const works: Work[] = [
       accent: "#D4AF37",
       accent2: "#16213E",
     },
-    coverImage: "/images/photos/architecture-of-alignment-cover.jpg",
+    coverImage: "/images/photos/The Architecture of Alignment by Camryn Jackson.png",
     primaryCta: {
       label: "Get on Amazon",
       url: "https://www.amazon.com/dp/B0GN1F1C54",
@@ -274,7 +274,7 @@ export const works: Work[] = [
       accent: "#D4AF37",
       accent2: "#16213E",
     },
-    coverImage: "/images/photos/ORIGEN app icon by Camryn Jackson.PNG",
+    coverImage: "/images/photos/PNEU app icon by Camryn Jackson.png",
     primaryCta: {
       label: "Download on App Store",
       url: "https://apps.apple.com/us/app/pneu/id6757112120",
@@ -301,7 +301,7 @@ export const works: Work[] = [
       accent: "#D4AF37",
       accent2: "#6B46C1",
     },
-    coverImage: "/images/photos/ORIGEN app icon by Camryn Jackson.PNG",
+    coverImage: "/images/photos/SOVEREIGNTY app icon by Camryn Jackson.png",
     primaryCta: {
       label: "Download on App Store",
       url: "https://apps.apple.com/us/app/sovereignty/id6758255804",
