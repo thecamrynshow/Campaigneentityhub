@@ -153,9 +153,34 @@ function CaseStudySection({
           <h3 className="text-xs font-semibold text-brand-gold uppercase tracking-[0.2em] mb-4">
             Hardest Product Decision
           </h3>
-          <p className="text-white/75 leading-relaxed text-[15px]">
+          <p className="text-white/80 leading-relaxed text-[15px] font-medium mb-4">
             {study.hardestDecision}
           </p>
+          <div className="border-t border-white/[0.06] pt-4">
+            <p className="text-white/30 text-xs uppercase tracking-[0.15em] font-semibold mb-2">
+              Why
+            </p>
+            <p className="text-white/60 leading-relaxed text-[15px]">
+              {study.hardestDecisionWhy}
+            </p>
+          </div>
+        </div>
+
+        <div className="mb-10">
+          <h3 className="text-xs font-semibold text-brand-gold uppercase tracking-[0.2em] mb-4">
+            Impact / Expected Impact
+          </h3>
+          <div className="space-y-3">
+            {study.impact.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 text-white/65 text-[15px] leading-relaxed"
+              >
+                <span className="text-brand-gold/40 mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-gold/40 flex-shrink-0" />
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
@@ -219,12 +244,14 @@ export default function ProductPage() {
             Systems Designer
           </p>
           <p className="text-[17px] text-white/60 leading-[1.8] max-w-2xl">
-            I build systems that reduce friction in real-world environments. My
-            background as a Dean of Students exposed me to operational problems
-            traditional software overlooks — regulation breakdowns, attention
-            constraints, and documentation overhead inside high-pressure
-            environments. I design products that address those gaps across AI
-            tools, education systems, and workflow automation.
+            I identify operational problems inside real-world environments and
+            build the systems that solve them. As a former Dean of Students and
+            Athletic Director, I operated inside the constraints that most
+            software ignores — limited time, high stress, fragmented workflows,
+            and people making decisions under pressure. That experience shapes
+            how I design products: start with the constraint, scope tight, and
+            ship systems that reduce friction across AI tools, education
+            platforms, and workflow automation.
           </p>
         </div>
       </section>
@@ -447,33 +474,50 @@ export default function ProductPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Constraint-First",
-                text: "Understand the real limits people work under before designing anything.",
-              },
-              {
-                title: "Ship to Learn",
-                text: "Small scopes, fast delivery, measure the right thing. Features follow evidence.",
-              },
-              {
-                title: "Systems Over Features",
-                text: "Build the system that solves the category, not just the feature that patches the symptom.",
-              },
-            ].map((principle) => (
-              <div
-                key={principle.title}
-                className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6"
-              >
-                <h3 className="text-white/80 font-semibold text-sm mb-2">
-                  {principle.title}
-                </h3>
-                <p className="text-white/40 text-sm leading-relaxed">
-                  {principle.text}
-                </p>
-              </div>
-            ))}
+          <div className="mt-12">
+            <p className="text-brand-gold/40 text-xs uppercase tracking-[0.3em] font-semibold mb-6">
+              Product Principles
+            </p>
+            <div className="space-y-4">
+              {[
+                {
+                  title: "Constraint-first design",
+                  text: "Build for the real environments users operate in — not ideal conditions.",
+                },
+                {
+                  title: "Systems over features",
+                  text: "Solve the category problem, not just the symptom. A good system makes the next 10 features unnecessary.",
+                },
+                {
+                  title: "Speed of use matters",
+                  text: "Tools should work in under 60 seconds without training. If it needs a workshop, it's too complex.",
+                },
+                {
+                  title: "AI should reduce cognitive load",
+                  text: "Not increase complexity. If the AI layer makes the product harder to use, remove the AI layer.",
+                },
+                {
+                  title: "Ship small, learn fast, expand intentionally",
+                  text: "Scope the smallest version that tests the real hypothesis. Add surface area only when evidence supports it.",
+                },
+              ].map((principle) => (
+                <div
+                  key={principle.title}
+                  className="flex items-start gap-4 py-3 border-b border-white/[0.04] last:border-0"
+                >
+                  <span className="text-brand-gold/40 mt-1 text-xs">▸</span>
+                  <div>
+                    <span className="text-white/75 font-medium text-[15px]">
+                      {principle.title}
+                    </span>
+                    <span className="text-white/40 text-[15px]">
+                      {" — "}
+                      {principle.text}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
