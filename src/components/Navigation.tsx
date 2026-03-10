@@ -11,13 +11,13 @@ export default function Navigation() {
 
   const navItems = [
     { href: "/", label: "Home" },
+    { href: "/product", label: "Product" },
+    { href: "/campaigne", label: "Campaigne" },
+    { href: "/apps", label: "Apps" },
     { href: "/books", label: "Books" },
     { href: "/music", label: "Music" },
-    { href: "/apps", label: "Apps" },
     { href: "/acting", label: "Acting" },
-    { href: "/wrestling", label: "Wrestling" },
     { href: "/press", label: "Press" },
-    { href: "/photos", label: "Photos" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -33,7 +33,7 @@ export default function Navigation() {
             className="text-2xl font-bold text-brand-gold hover:text-brand-gold/80 transition-colors tracking-tight"
             aria-label="Home"
           >
-            Campaigne
+            CJ
           </Link>
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {

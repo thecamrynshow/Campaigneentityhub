@@ -1,26 +1,26 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { getSiteUrl } from "@/src/lib/utils";
-import { getLatestWorks, getReleasedWorks } from "@/src/content/works";
-import FeaturedWorkCard from "@/src/components/FeaturedWorkCard";
-import LatestReleaseCard from "@/src/components/LatestReleaseCard";
-import {
-  getOrganizationSchema,
-} from "@/src/lib/structured-data";
-import { getSortedSocialLinks } from "@/src/lib/social-links";
 
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Campaigne - Entering a Kingdom",
+  title: "Camryn Jackson — Portfolio",
   description:
-    "Campaigne - Official entity hub for Camryn Jackson (Campaigne). Discover books, music, apps, and creative works. Search for Campaigne music, Campaigne albums, Campaigne books.",
-  keywords: ["Campaigne", "Campaigne music", "Campaigne artist", "Campaigne albums", "Campaigne books", "Camryn Jackson", "PNEUMA", "Tales of Time", "ORIGEN"],
+    "Camryn Jackson — Product Manager, Founder, and Creative. Portfolio spanning product development, AI tools, education technology, music, books, and film.",
+  keywords: [
+    "Camryn Jackson",
+    "Product Manager",
+    "PNEUOMA",
+    "Campaigne",
+    "portfolio",
+    "AI tools",
+    "education technology",
+  ],
   openGraph: {
-    title: "Campaigne - Entering a Kingdom | Official Entity Hub",
+    title: "Camryn Jackson — Portfolio",
     description:
-      "Campaigne - Official entity hub for Camryn Jackson. Discover books, music, apps, and creative works.",
+      "Product Manager, Founder, and Creative. Building human-centered systems across tech, education, and the arts.",
     url: siteUrl,
   },
   alternates: {
@@ -28,200 +28,180 @@ export const metadata: Metadata = {
   },
 };
 
+const portfolioSections = [
+  {
+    title: "Product",
+    subtitle: "PM Portfolio & Case Studies",
+    description:
+      "Product strategy, user problem discovery, and MVP development across AI tools, regulation tech, and education systems.",
+    href: "/product",
+    accent: "brand-gold",
+    tag: "Product Manager",
+  },
+  {
+    title: "Campaigne",
+    subtitle: "Music, Books & Creative Works",
+    description:
+      "The official entity hub for Campaigne — a curated collection of books, music, apps, and creative works that transcend boundaries.",
+    href: "/campaigne",
+    accent: "brand-purple",
+    tag: "Artist & Author",
+  },
+  {
+    title: "Apps",
+    subtitle: "Software & Tools",
+    description:
+      "Applications built to solve real problems — from nervous system regulation to voice-based documentation and educational games.",
+    href: "/apps",
+    accent: "brand-gold",
+    tag: "Builder",
+  },
+  {
+    title: "Acting & Film",
+    subtitle: "Screen Credits & Productions",
+    description:
+      "Film and acting work including Bonus Trip and other productions. On-screen presence meets behind-the-scenes vision.",
+    href: "/acting",
+    accent: "brand-purple",
+    tag: "Filmmaker",
+  },
+];
+
 export default function HomePage() {
-  const featuredWorks = getLatestWorks(4);
-  const allWorks = getReleasedWorks();
-  const socialLinks = getSortedSocialLinks();
-
-  // Person and WebSite schemas are in root layout - no need to duplicate
-  const orgSchema = getOrganizationSchema();
-
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-      />
+    <div className="min-h-screen bg-black">
+      {/* Hero */}
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-brand-purple/15 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-brand-purple/10" />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background with sophisticated gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-brand-purple/30 to-black" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-brand-purple/20" />
-        
-        {/* Animated background pattern */}
-        <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0 opacity-[0.02]">
           <div
             className="absolute inset-0"
             style={{
               backgroundImage:
-                "radial-gradient(circle at 2px 2px, rgba(212,175,55,0.4) 1px, transparent 0)",
-              backgroundSize: "80px 80px",
+                "radial-gradient(circle at 2px 2px, rgba(212,175,55,0.3) 1px, transparent 0)",
+              backgroundSize: "60px 60px",
             }}
           />
         </div>
-        
-        {/* Gold accent lines */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" />
-        
-        <div className="relative z-10 max-w-6xl mx-auto container-padding text-center">
-          {/* Royal Seal Watermark */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
-            <div className="relative w-96 h-96">
-              {/* CJ Monogram using CSS */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-[20rem] font-serif text-brand-gold leading-none" style={{ fontFamily: 'var(--font-playfair)' }}>
-                  CJ
-                </div>
-              </div>
-              {/* Crest ring */}
-              <div className="absolute inset-0 rounded-full border-4 border-brand-gold/20" />
-            </div>
-          </div>
-          
-          <div className="mb-6 relative z-10">
-            <span className="inline-block px-4 py-2 text-sm font-medium text-brand-gold/80 border border-brand-gold/30 rounded-full bg-brand-gold/5 backdrop-blur-sm">
-              Campaigne
+
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" />
+
+        <div className="relative z-10 max-w-5xl mx-auto container-padding text-center">
+          <div className="mb-8">
+            <span className="inline-block px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold/80 border border-brand-gold/20 rounded-full bg-brand-gold/5 backdrop-blur-sm">
+              Portfolio
             </span>
           </div>
-          <h1 className="text-7xl md:text-9xl font-bold mb-8 font-serif text-brand-gold tracking-tight leading-none relative z-10">
-            Entering a Kingdom
+
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 font-serif text-white tracking-tight leading-[1.05]">
+            Camryn Jackson
           </h1>
-          <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed max-w-3xl mx-auto font-light relative z-10">
-            Welcome to Campaigne - the official source of truth for releases, images, bios,
-            and links from Camryn Jackson (Campaigne). A curated collection of
-            books, music, apps, and creative works that transcend boundaries.
+
+          <p className="text-xl md:text-2xl text-white/50 mb-4 font-light">
+            Product Manager&ensp;·&ensp;Founder&ensp;·&ensp;Creative
           </p>
-          
-          {/* Gold divider with crown accent */}
-          <div className="relative z-10 mb-12 flex items-center justify-center">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-gold/50 to-transparent" />
-            <div className="mx-4 text-brand-gold text-2xl">✦</div>
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-gold/50 to-transparent" />
+
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="flex-1 max-w-[120px] h-px bg-gradient-to-r from-transparent to-brand-gold/40" />
+            <span className="text-brand-gold/60 text-lg">✦</span>
+            <div className="flex-1 max-w-[120px] h-px bg-gradient-to-l from-transparent to-brand-gold/40" />
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10">
+
+          <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mb-12">
+            Building human-centered systems at the intersection of technology,
+            education, and the arts. Founder of PNEUOMA. Former Dean of
+            Students. Product builder across AI tools, mobile apps, and
+            creative works.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/about"
-              className="btn-primary"
-              aria-label="Learn more about Camryn Jackson"
+              href="/product"
+              className="px-8 py-4 text-base font-semibold text-black bg-brand-gold rounded-lg hover:bg-brand-gold/90 transition-all duration-300 hover:scale-105"
             >
-              Learn More
+              Product Portfolio
             </Link>
             <Link
-              href="/books"
-              className="btn-secondary"
-              aria-label="Explore books"
+              href="/campaigne"
+              className="px-8 py-4 text-base font-semibold text-brand-gold border-2 border-brand-gold/40 rounded-lg hover:bg-brand-gold/10 transition-all duration-300 hover:scale-105"
             >
-              Explore Works
+              Creative Works
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured Works */}
-      {featuredWorks.length > 0 && (
-        <section className="section-padding bg-black relative">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
-          <div className="max-w-7xl mx-auto container-padding">
-            <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold mb-4 text-brand-gold font-serif tracking-tight">
-                Featured Works
-              </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Curated selection of standout releases
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-              {featuredWorks.map((work) => (
-                <FeaturedWorkCard key={work.id} work={work} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Latest Releases */}
-      {allWorks.length > 0 && (
-        <section className="section-padding bg-gradient-to-b from-black via-brand-purple/5 to-black relative">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent" />
-          <div className="max-w-7xl mx-auto container-padding">
-            <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold mb-4 text-brand-gold font-serif tracking-tight">
-                Latest Releases
-              </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Explore all available works across books, music, and apps
-              </p>
-            </div>
-            {/* Desktop: Horizontal scroll, Mobile: Grid */}
-            <div className="hidden lg:flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
-              {allWorks
-                .sort((a, b) => {
-                  if (!a.datePublished) return 1;
-                  if (!b.datePublished) return -1;
-                  return b.datePublished.localeCompare(a.datePublished);
-                })
-                .map((work) => (
-                  <div key={work.id} className="flex-shrink-0 w-64">
-                    <LatestReleaseCard work={work} />
-                  </div>
-                ))}
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:hidden gap-4">
-              {allWorks
-                .sort((a, b) => {
-                  if (!a.datePublished) return 1;
-                  if (!b.datePublished) return -1;
-                  return b.datePublished.localeCompare(a.datePublished);
-                })
-                .map((work) => (
-                  <LatestReleaseCard key={work.id} work={work} />
-                ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Social Links */}
-      <section className="py-16 bg-black relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
-        <div className="max-w-7xl mx-auto container-padding">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-gold font-serif">
-              Connect
+      {/* Portfolio Grid */}
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto container-padding">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight mb-4">
+              Explore
             </h2>
-            <p className="text-white/60 mb-8">
-              Follow Campaigne across platforms
+            <p className="text-white/50 text-lg">
+              Everything I build, create, and ship
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            {socialLinks.map((link) => (
-              <a
-                key={link.url}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 border-2 border-brand-gold text-brand-gold rounded-lg font-semibold hover:bg-brand-gold/10 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-2 focus:ring-offset-black"
-                aria-label={`Visit ${link.label}`}
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {portfolioSections.map((section) => (
+              <Link
+                key={section.href}
+                href={section.href}
+                className="group relative bg-white/[0.02] border border-white/[0.08] rounded-2xl p-8 md:p-10 hover:border-brand-gold/30 hover:bg-white/[0.04] transition-all duration-500"
               >
-                {link.label}
-              </a>
+                <div className="mb-4">
+                  <span className="inline-block px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-gold/70 border border-brand-gold/20 rounded-full">
+                    {section.tag}
+                  </span>
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight mb-2 group-hover:text-brand-gold transition-colors duration-300">
+                  {section.title}
+                </h3>
+                <p className="text-white/40 text-sm font-medium uppercase tracking-wider mb-4">
+                  {section.subtitle}
+                </p>
+                <p className="text-white/60 leading-relaxed">
+                  {section.description}
+                </p>
+                <div className="mt-6 text-brand-gold/60 group-hover:text-brand-gold transition-colors text-sm font-medium flex items-center gap-2">
+                  View
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                    →
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Footer Note */}
-      <footer className="py-16 bg-black border-t border-brand-gold/10 relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" />
-        <div className="max-w-7xl mx-auto container-padding text-center">
-          <p className="text-white/50 text-sm leading-relaxed max-w-2xl mx-auto">
-            <strong className="text-brand-gold font-medium">Canonical Entity Hub</strong> • Official metadata, images, and links.
-          </p>
+      {/* Quick Links */}
+      <section className="py-16 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto container-padding">
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              { label: "Books", href: "/books" },
+              { label: "Music", href: "/music" },
+              { label: "Wrestling", href: "/wrestling" },
+              { label: "Photos", href: "/photos" },
+              { label: "Press", href: "/press" },
+              { label: "About", href: "/about" },
+              { label: "Contact", href: "/contact" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-6 py-3 text-sm font-medium text-white/50 border border-white/10 rounded-lg hover:text-brand-gold hover:border-brand-gold/30 hover:bg-brand-gold/5 transition-all duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
-      </footer>
-    </>
+      </section>
+    </div>
   );
 }
-

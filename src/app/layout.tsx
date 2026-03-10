@@ -18,20 +18,20 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Campaigne | Camryn Jackson - Official Entity Hub",
-    template: "%s | Campaigne",
+    default: "Camryn Jackson — Portfolio",
+    template: "%s | Camryn Jackson",
   },
-  description: "Campaigne - Official source for releases, images, bios, and links from Camryn Jackson (Campaigne). Books, music, apps, and creative works.",
-  keywords: ["Campaigne", "Camryn Jackson", "Campaigne music", "Campaigne artist", "Campaigne author", "author", "musician", "app developer", "filmmaker"],
+  description: "Camryn Jackson — Product Manager, Founder, and Creative. Portfolio spanning product development, AI tools, education technology, music, books, and film.",
+  keywords: ["Camryn Jackson", "Product Manager", "PNEUOMA", "Campaigne", "portfolio", "AI tools", "education technology", "author", "musician", "app developer"],
   authors: [{ name: "Camryn Jackson", url: siteUrl }],
   creator: "Camryn Jackson",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Campaigne",
-    title: "Camryn Jackson | Campaigne - Official Entity Hub",
-    description: "Official source for releases, images, bios, and links from Camryn Jackson (Campaigne).",
+    siteName: "Camryn Jackson",
+    title: "Camryn Jackson — Portfolio",
+    description: "Product Manager, Founder, and Creative. Building human-centered systems across tech, education, and the arts.",
     images: [
       {
         url: `${siteUrl}/images/og-default.jpg`,
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Camryn Jackson | Campaigne",
-    description: "Official source for releases, images, bios, and links.",
+    title: "Camryn Jackson — Portfolio",
+    description: "Product Manager, Founder, and Creative. Building human-centered systems.",
     images: [`${siteUrl}/images/og-default.jpg`],
   },
   robots: {
