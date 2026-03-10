@@ -81,9 +81,23 @@ function CaseStudySection({
           </span>
         </div>
 
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 font-serif tracking-tight">
-          {study.name}
-        </h2>
+        {study.url ? (
+          <a
+            href={study.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/title inline-flex items-center gap-3 mb-2"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight group-hover/title:text-brand-gold transition-colors">
+              {study.name}
+            </h2>
+            <span className="text-white/20 text-lg group-hover/title:text-brand-gold/60 group-hover/title:translate-x-0.5 transition-all">↗</span>
+          </a>
+        ) : (
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 font-serif tracking-tight">
+            {study.name}
+          </h2>
+        )}
         <p className="text-lg text-white/40 mb-12">{study.tagline}</p>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 mb-10">
@@ -339,42 +353,63 @@ export default function ProductPage() {
           </div>
 
           {/* Table rows */}
-          {productIndex.map((product) => (
-            <div
-              key={product.name}
-              className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-4 border-b border-white/[0.04] hover:bg-white/[0.01] transition-colors group"
-            >
-              <div className="md:col-span-3">
-                <p className="text-white/80 font-medium text-[15px] group-hover:text-white transition-colors">
-                  {product.name}
-                </p>
+          {productIndex.map((product) => {
+            const Row = (
+              <>
+                <div className="md:col-span-3">
+                  <span className="text-white/80 font-medium text-[15px] group-hover:text-white transition-colors inline-flex items-center gap-1.5">
+                    {product.name}
+                    {product.url && (
+                      <span className="text-white/15 text-xs group-hover:text-brand-gold/50 transition-colors">↗</span>
+                    )}
+                  </span>
+                </div>
+                <div className="md:col-span-2">
+                  <p className="text-white/35 text-sm">{product.type}</p>
+                </div>
+                <div className="md:col-span-2">
+                  <p className="text-white/35 text-sm">{product.domain}</p>
+                </div>
+                <div className="md:col-span-4">
+                  <p className="text-white/45 text-sm leading-relaxed">
+                    {product.description}
+                  </p>
+                </div>
+                <div className="md:col-span-1 md:text-right">
+                  <span
+                    className={`inline-block px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full ${
+                      product.status === "Shipped"
+                        ? "text-brand-gold/70 bg-brand-gold/[0.08] border border-brand-gold/15"
+                        : product.status === "Internal"
+                          ? "text-white/30 bg-white/[0.03] border border-white/[0.06]"
+                          : "text-white/40 bg-white/[0.04] border border-white/[0.08]"
+                    }`}
+                  >
+                    {product.status}
+                  </span>
+                </div>
+              </>
+            );
+
+            return product.url ? (
+              <a
+                key={product.name}
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-4 border-b border-white/[0.04] hover:bg-white/[0.015] transition-colors group"
+              >
+                {Row}
+              </a>
+            ) : (
+              <div
+                key={product.name}
+                className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-4 border-b border-white/[0.04] hover:bg-white/[0.01] transition-colors group"
+              >
+                {Row}
               </div>
-              <div className="md:col-span-2">
-                <p className="text-white/35 text-sm">{product.type}</p>
-              </div>
-              <div className="md:col-span-2">
-                <p className="text-white/35 text-sm">{product.domain}</p>
-              </div>
-              <div className="md:col-span-4">
-                <p className="text-white/45 text-sm leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-              <div className="md:col-span-1 md:text-right">
-                <span
-                  className={`inline-block px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full ${
-                    product.status === "Shipped"
-                      ? "text-brand-gold/70 bg-brand-gold/[0.08] border border-brand-gold/15"
-                      : product.status === "Internal"
-                        ? "text-white/30 bg-white/[0.03] border border-white/[0.06]"
-                        : "text-white/40 bg-white/[0.04] border border-white/[0.08]"
-                  }`}
-                >
-                  {product.status}
-                </span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

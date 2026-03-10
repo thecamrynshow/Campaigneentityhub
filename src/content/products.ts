@@ -4,6 +4,7 @@ export interface CaseStudy {
   name: string;
   tagline: string;
   domain: string;
+  url?: string;
   problem: string;
   insight: string;
   solution: string;
@@ -19,6 +20,7 @@ export interface ProductIndexItem {
   type: string;
   domain: string;
   description: string;
+  url?: string;
   status: "Shipped" | "In Progress" | "Internal";
 }
 
@@ -29,6 +31,7 @@ export const caseStudies: CaseStudy[] = [
     name: "PNEU",
     tagline: "Nervous system regulation in under 60 seconds",
     domain: "Health / Education",
+    url: "https://apps.apple.com/us/app/pneu/id6757112120",
     problem:
       "In school environments, dysregulated students and teachers cause classroom disruptions, teacher burnout, and learning loss. Most interventions happen after problems escalate — there are no fast, proactive tools available between transitions.",
     insight:
@@ -66,6 +69,7 @@ export const caseStudies: CaseStudy[] = [
     name: "PNEUOMA Capture",
     tagline: "Voice-first incident documentation for educators",
     domain: "AI / Education",
+    url: "https://pneuoma.com",
     problem:
       "Teachers and administrators lose hours each week to manual incident documentation. MTSS and behavioral reporting systems are slow, frustrating, and pull educators away from students. Documentation gets delayed, quality drops, and patterns go undetected.",
     insight:
@@ -177,6 +181,7 @@ export const caseStudies: CaseStudy[] = [
     name: "PilotEngine",
     tagline: "Automated outreach and workflow orchestration",
     domain: "AI / Sales Automation",
+    url: "https://pilot-engine.vercel.app",
     problem:
       "Outreach workflows — for sales, partnerships, or recruiting — require repetitive manual effort: list building, personalization, sequencing, and follow-ups. Small teams can't compete with organizations that have dedicated ops teams.",
     insight:
@@ -216,6 +221,7 @@ export const productIndex: ProductIndexItem[] = [
     type: "Mobile App",
     domain: "Health / Education",
     description: "60-second nervous system regulation with haptic breathing",
+    url: "https://apps.apple.com/us/app/pneu/id6757112120",
     status: "Shipped",
   },
   {
@@ -223,6 +229,7 @@ export const productIndex: ProductIndexItem[] = [
     type: "AI Tool",
     domain: "AI / Education",
     description: "Voice-to-structured-report incident documentation",
+    url: "https://pneuoma.com",
     status: "Shipped",
   },
   {
@@ -244,13 +251,15 @@ export const productIndex: ProductIndexItem[] = [
     type: "Automation Platform",
     domain: "AI / Sales",
     description: "Multi-channel outreach orchestration and workflow automation",
-    status: "In Progress",
+    url: "https://pilot-engine.vercel.app",
+    status: "Shipped",
   },
   {
     name: "ORIGEN",
     type: "Mobile App",
     domain: "Productivity",
     description: "Personal operating system for daily structure and clarity",
+    url: "https://apps.apple.com/us/app/origen/id6756326466",
     status: "Shipped",
   },
   {
@@ -258,6 +267,7 @@ export const productIndex: ProductIndexItem[] = [
     type: "Strategy Game",
     domain: "Gaming / Education",
     description: "Civilization-building strategy game spanning seven historical eras",
+    url: "https://apps.apple.com/us/app/sovereignty/id6758255804",
     status: "Shipped",
   },
   {
@@ -265,7 +275,8 @@ export const productIndex: ProductIndexItem[] = [
     type: "Platform",
     domain: "AI / Education",
     description: "Unified operating system connecting regulation, documentation, and workflow tools",
-    status: "In Progress",
+    url: "https://pneuoma.com",
+    status: "Shipped",
   },
   {
     name: "AI Outreach System",
