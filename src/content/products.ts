@@ -256,6 +256,52 @@ export const caseStudies: CaseStudy[] = [
       { label: "Outcome", detail: "Enterprise outreach capacity for lean teams, measurably" },
     ],
   },
+  {
+    id: "veluna",
+    number: "06",
+    name: "Veluna",
+    tagline: "Not a period tracker — a regulation system for the menstrual cycle",
+    domain: "Health / Women's Wellness",
+    problem:
+      "Most menstrual health apps are basic period trackers — they log dates and predict the next period. They don't address the fact that the menstrual cycle affects energy, mood, creativity, and decision-making across the entire month. Women are left managing symptoms reactively instead of working with their cycle proactively. Meanwhile, the apps that do exist often sell user data or require accounts that compromise privacy.",
+    insight:
+      "The menstrual cycle has four distinct phases, each with different physiological and cognitive characteristics. If you frame each phase around its strengths — not just its symptoms — cycle awareness becomes a regulation system, not a burden. And if you pair that awareness with guided breathing protocols and actionable daily guidance, you move from tracking to actual support.",
+    solution:
+      "A privacy-first cycle companion that goes beyond tracking. Veluna provides smart predictions with confidence levels, phase-specific breathing protocols with haptic guidance, daily affirmations and superpower framing for each phase, comprehensive symptom and sensation logging, educational content on cycle science, and exportable PDF reports for healthcare providers. All data stays on-device — no accounts, no servers, no data selling.",
+    hardestDecision:
+      "Designing the app as a regulation system rather than a feature-rich period tracker.",
+    hardestDecisionWhy:
+      "The market is saturated with period trackers that compete on features — more symptoms to log, more charts to view, more social features. Adding more tracking surface area would have been the obvious play. Instead, I focused on regulation: breathing protocols mapped to cycle phases, superpower framing that changes daily guidance, and a companion layer that supports rather than just records. This meant building multiple engines (cycle intelligence, regulation protocols, meaning framing, affirmations) instead of a single logging system — but it creates a product that women actually open daily, not just when their period starts.",
+    keyDecisions: [
+      "Privacy-first architecture — all data on-device, no accounts required, no data sent to servers",
+      "Regulation over tracking — breathing protocols, phase-specific guidance, and superpower framing are primary, not secondary",
+      "Confidence-based predictions — transparent about prediction accuracy (high/medium/low/learning) instead of false certainty",
+      "Doctor export — PDF reports bridge personal tracking and professional healthcare without compromising daily UX",
+    ],
+    impact: [
+      "Shift menstrual health from reactive symptom logging to proactive cycle-aware regulation",
+      "Give women actionable daily guidance based on cycle phase, not just a calendar view",
+      "Eliminate privacy concerns that prevent adoption of existing cycle tracking apps",
+      "Enable better healthcare conversations through structured, exportable cycle reports",
+    ],
+    metrics: [
+      "Daily active usage (not just period-week usage)",
+      "Breathing protocol completion rate",
+      "Prediction confidence improvement over time",
+      "Doctor export generation rate",
+    ],
+    nextSteps: [
+      "Expanded premium affirmation and ambient music library",
+      "Moon phase integration for holistic cycle awareness",
+      "Community-driven symptom pattern insights (anonymized, opt-in)",
+    ],
+    flow: [
+      { label: "Environment", detail: "Women manage cycle impacts reactively with basic tracking apps" },
+      { label: "Friction", detail: "No tool connects cycle phases to energy, mood, and actionable regulation" },
+      { label: "System", detail: "Phase-aware companion with predictions, breathing protocols, and daily guidance" },
+      { label: "Outcome", detail: "Daily engagement and proactive cycle management, not just period logging" },
+    ],
+  },
 ];
 
 export const productIndex: ProductIndexItem[] = [
@@ -327,6 +373,13 @@ export const productIndex: ProductIndexItem[] = [
     domain: "AI / Operations",
     description: "Automated prospecting and personalized email generation pipeline",
     status: "Internal",
+  },
+  {
+    name: "Veluna",
+    type: "Mobile App",
+    domain: "Health / Women's Wellness",
+    description: "Privacy-first menstrual cycle companion with regulation protocols and smart predictions",
+    status: "In Progress",
   },
   {
     name: "Curriculum Analytics",
