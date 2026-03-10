@@ -459,8 +459,8 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* Case Study 3: Educational Sandbox Game */}
-      <section className="py-20 border-t border-white/[0.06]" id="sandbox">
+      {/* Case Study 3: Playground */}
+      <section className="py-20 border-t border-white/[0.06]" id="playground">
         <div className="max-w-4xl mx-auto container-padding">
           <div className="mb-2">
             <span className="text-brand-gold/60 text-xs font-semibold uppercase tracking-[0.2em]">
@@ -468,10 +468,10 @@ export default function ProductPage() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 font-serif tracking-tight">
-            Educational Sandbox Game
+            Playground
           </h2>
           <p className="text-xl text-white/50 mb-10">
-            Play-Based Learning Environment
+            Play-Based Educational Game
           </p>
 
           <div className="space-y-10">
@@ -491,7 +491,7 @@ export default function ProductPage() {
                 Insight
               </h3>
               <p className="text-white/70 leading-relaxed">
-                Children engage deeply with open sandbox environments like
+                Children engage deeply with open play environments like
                 Minecraft. Teachers should be able to embed learning objectives
                 directly into gameplay.
               </p>
@@ -502,7 +502,7 @@ export default function ProductPage() {
                 Product
               </h3>
               <p className="text-white/70 leading-relaxed">
-                A sandbox-style educational world where teachers define learning
+                An open educational world where teachers define learning
                 tasks — math challenges, spelling quests, problem-solving
                 missions — inside an open play environment.
               </p>
@@ -516,7 +516,7 @@ export default function ProductPage() {
                 },
                 {
                   label: "Insight",
-                  detail: "Sandbox play drives deep engagement",
+                  detail: "Open play drives deep engagement",
                 },
                 {
                   label: "Product",
@@ -536,7 +536,7 @@ export default function ProductPage() {
               <ul className="space-y-2 text-white/70">
                 <li className="flex items-start gap-3">
                   <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Basic sandbox environment
+                  Open play environment
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-brand-gold mt-1 text-sm">▸</span>
@@ -577,8 +577,8 @@ export default function ProductPage() {
                 &ldquo;The hardest product decision was keeping the game
                 open-ended rather than tightly structured. Educational games
                 often lose engagement because they feel like assignments.
-                Allowing teachers to insert learning challenges inside a sandbox
-                environment preserved play while supporting learning
+                Allowing teachers to insert learning challenges inside
+                Playground preserved play while supporting learning
                 goals.&rdquo;
               </p>
             </div>

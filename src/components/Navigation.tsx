@@ -12,9 +12,9 @@ export default function Navigation() {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/product", label: "Product" },
-    { href: "/campaigne", label: "Campaigne" },
     { href: "/apps", label: "Apps" },
     { href: "/books", label: "Books" },
+    { href: "/campaigne", label: "Campaigne" },
     { href: "/music", label: "Music" },
     { href: "/acting", label: "Acting" },
     { href: "/press", label: "Press" },
