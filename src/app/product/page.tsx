@@ -1,16 +1,17 @@
 import { Metadata } from "next";
 import { getSiteUrl } from "@/src/lib/utils";
+import { caseStudies, productIndex } from "@/src/content/products";
 
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   title: "Product Portfolio — Camryn Jackson",
   description:
-    "Product Manager portfolio for Camryn Jackson. Case studies in AI tools, education technology, and human-centered systems. Founder @ PNEUOMA.",
+    "Product portfolio for Camryn Jackson. 0→1 product builder across AI tools, education systems, and workflow automation. Case studies, product decisions, and systems thinking.",
   openGraph: {
     title: "Product Portfolio — Camryn Jackson",
     description:
-      "Product Manager | Founder @ PNEUOMA. Case studies in regulation tech, AI documentation, and educational games.",
+      "Product Builder | Founder @ PNEUOMA. Case studies in AI, education, regulation tech, and workflow automation.",
     url: `${siteUrl}/product`,
   },
   alternates: {
@@ -24,19 +25,19 @@ function FlowDiagram({
   steps: { label: string; detail: string }[];
 }) {
   return (
-    <div className="flex flex-col md:flex-row items-stretch gap-0 my-10">
+    <div className="flex flex-col md:flex-row items-stretch gap-0 my-8">
       {steps.map((step, i) => (
         <div key={i} className="flex flex-col md:flex-row items-center flex-1">
-          <div className="bg-white/[0.04] border border-white/10 rounded-xl p-5 flex-1 w-full text-center hover:border-brand-gold/40 transition-colors">
-            <p className="text-brand-gold font-semibold text-sm uppercase tracking-widest mb-1">
+          <div className="bg-white/[0.03] border border-white/[0.08] rounded-lg p-4 flex-1 w-full text-center hover:border-brand-gold/30 transition-colors">
+            <p className="text-brand-gold font-semibold text-[11px] uppercase tracking-[0.2em] mb-1.5">
               {step.label}
             </p>
-            <p className="text-white/70 text-sm leading-relaxed">
+            <p className="text-white/60 text-sm leading-relaxed">
               {step.detail}
             </p>
           </div>
           {i < steps.length - 1 && (
-            <div className="text-brand-gold/60 text-2xl mx-2 my-2 md:my-0 rotate-90 md:rotate-0 select-none">
+            <div className="text-brand-gold/40 text-xl mx-2 my-2 md:my-0 rotate-90 md:rotate-0 select-none font-light">
               →
             </div>
           )}
@@ -46,632 +47,433 @@ function FlowDiagram({
   );
 }
 
-function MetricPill({ label }: { label: string }) {
+function StatBlock({ value, label }: { value: string; label: string }) {
   return (
-    <span className="inline-block px-3 py-1.5 text-xs font-medium text-white/70 bg-white/[0.04] border border-white/10 rounded-full">
-      {label}
-    </span>
+    <div className="text-center">
+      <p className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight">
+        {value}
+      </p>
+      <p className="text-white/40 text-sm mt-1">{label}</p>
+    </div>
+  );
+}
+
+function CaseStudySection({
+  study,
+  even,
+}: {
+  study: (typeof caseStudies)[0];
+  even: boolean;
+}) {
+  return (
+    <section
+      className={`py-20 border-t border-white/[0.06] ${even ? "bg-gradient-to-b from-white/[0.01] to-transparent" : ""}`}
+      id={study.id}
+    >
+      <div className="max-w-4xl mx-auto container-padding">
+        <div className="flex items-center gap-4 mb-8">
+          <span className="text-brand-gold/40 text-xs font-mono tracking-wider">
+            {study.number}
+          </span>
+          <div className="h-px flex-1 bg-white/[0.06]" />
+          <span className="text-white/30 text-xs uppercase tracking-[0.15em]">
+            {study.domain}
+          </span>
+        </div>
+
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 font-serif tracking-tight">
+          {study.name}
+        </h2>
+        <p className="text-lg text-white/40 mb-12">{study.tagline}</p>
+
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 mb-10">
+          <div>
+            <h3 className="text-xs font-semibold text-brand-gold uppercase tracking-[0.2em] mb-3">
+              Problem
+            </h3>
+            <p className="text-white/65 leading-relaxed text-[15px]">
+              {study.problem}
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xs font-semibold text-brand-gold uppercase tracking-[0.2em] mb-3">
+              Insight
+            </h3>
+            <p className="text-white/65 leading-relaxed text-[15px]">
+              {study.insight}
+            </p>
+          </div>
+        </div>
+
+        <div className="mb-10">
+          <h3 className="text-xs font-semibold text-brand-gold uppercase tracking-[0.2em] mb-3">
+            Solution
+          </h3>
+          <p className="text-white/65 leading-relaxed text-[15px] max-w-3xl">
+            {study.solution}
+          </p>
+        </div>
+
+        <FlowDiagram steps={study.flow} />
+
+        <div className="mb-10">
+          <h3 className="text-xs font-semibold text-brand-gold uppercase tracking-[0.2em] mb-4">
+            Key Decisions
+          </h3>
+          <div className="space-y-3">
+            {study.keyDecisions.map((decision, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 text-white/60 text-[15px] leading-relaxed"
+              >
+                <span className="text-brand-gold/50 mt-0.5 text-xs font-mono">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {decision}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-white/[0.02] border border-brand-gold/15 rounded-lg p-7 mb-10">
+          <h3 className="text-xs font-semibold text-brand-gold uppercase tracking-[0.2em] mb-4">
+            Hardest Product Decision
+          </h3>
+          <p className="text-white/75 leading-relaxed text-[15px]">
+            {study.hardestDecision}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+          <div>
+            <h3 className="text-xs font-semibold text-white/30 uppercase tracking-[0.2em] mb-4">
+              What I&apos;d Measure
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {study.metrics.map((metric) => (
+                <span
+                  key={metric}
+                  className="inline-block px-3 py-1.5 text-xs text-white/50 bg-white/[0.03] border border-white/[0.06] rounded-md"
+                >
+                  {metric}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xs font-semibold text-white/30 uppercase tracking-[0.2em] mb-4">
+              Next Steps
+            </h3>
+            <ul className="space-y-2">
+              {study.nextSteps.map((step) => (
+                <li
+                  key={step}
+                  className="text-white/45 text-sm flex items-start gap-2"
+                >
+                  <span className="text-white/20 mt-0.5">→</span>
+                  {step}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
 export default function ProductPage() {
+  const shipped = productIndex.filter((p) => p.status === "Shipped").length;
+  const domains = [...new Set(productIndex.map((p) => p.domain))];
+
   return (
     <div className="min-h-screen bg-black">
-      {/* Hero */}
-      <section className="relative pt-16 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-purple/10 via-black to-black" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" />
+      {/* ── Hero ── */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-purple/[0.06] via-black to-black" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" />
 
-        <div className="relative z-10 max-w-4xl mx-auto container-padding text-center">
-          <div className="mb-6">
-            <span className="inline-block px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold/80 border border-brand-gold/30 rounded-full bg-brand-gold/5">
-              Product Portfolio
-            </span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-serif text-white tracking-tight leading-[1.1]">
+        <div className="relative z-10 max-w-3xl mx-auto container-padding">
+          <p className="text-brand-gold/70 text-sm font-semibold uppercase tracking-[0.2em] mb-6">
+            Product Portfolio
+          </p>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 font-serif text-white tracking-tight leading-[1.1]">
             Camryn Jackson
           </h1>
-          <p className="text-xl md:text-2xl text-brand-gold font-medium mb-8">
-            Product Manager&ensp;|&ensp;Founder @ PNEUOMA
+          <p className="text-lg text-white/40 mb-10">
+            Product Builder&ensp;·&ensp;Founder @ PNEUOMA&ensp;·&ensp;0→1
+            Systems Designer
           </p>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-            Builder focused on human regulation systems, education tools, and
-            AI-assisted workflows.
+          <p className="text-[17px] text-white/60 leading-[1.8] max-w-2xl">
+            I build systems that reduce friction in real-world environments. My
+            background as a Dean of Students exposed me to operational problems
+            traditional software overlooks — regulation breakdowns, attention
+            constraints, and documentation overhead inside high-pressure
+            environments. I design products that address those gaps across AI
+            tools, education systems, and workflow automation.
           </p>
         </div>
       </section>
 
-      {/* Background + Focus */}
-      <section className="py-16 border-t border-white/[0.06]">
+      {/* ── Snapshot ── */}
+      <section className="py-14 border-t border-b border-white/[0.06]">
         <div className="max-w-4xl mx-auto container-padding">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-6 font-serif">
-                Background
-              </h2>
-              <ul className="space-y-3 text-white/70 leading-relaxed">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Founder building PNEUOMA OS
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Former Dean of Students &amp; Athletic Director
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Product builder across AI tools, mobile apps, and workflow systems
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-6 font-serif">
-                Focus Areas
-              </h2>
-              <ul className="space-y-3 text-white/70 leading-relaxed">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Human-centered systems
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  AI tools that remove friction from workflows
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Behavioral and educational technology
-                </li>
-              </ul>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <StatBlock value={`${productIndex.length}+`} label="Products Built" />
+            <StatBlock value={`${shipped}`} label="Shipped" />
+            <StatBlock value={`${domains.length}`} label="Domains" />
+            <StatBlock value="0→1" label="Core Focus" />
           </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="max-w-4xl mx-auto container-padding">
-        <div className="flex items-center gap-4">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" />
-          <span className="text-brand-gold/50 text-xs uppercase tracking-[0.3em] font-semibold">
-            Case Studies
-          </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" />
-        </div>
-      </div>
-
-      {/* Case Study 1: PNEU */}
-      <section className="py-20 border-t border-white/[0.06]" id="pneu">
-        <div className="max-w-4xl mx-auto container-padding">
-          <div className="mb-2">
-            <span className="text-brand-gold/60 text-xs font-semibold uppercase tracking-[0.2em]">
-              Case Study 01
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 font-serif tracking-tight">
-            PNEU
-          </h2>
-          <p className="text-xl text-white/50 mb-10">
-            Nervous System Regulation App
-          </p>
-
-          <div className="space-y-10">
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Problem
-              </h3>
-              <p className="text-white/70 leading-relaxed mb-4">
-                In school environments, dysregulated students and teachers lead
-                to classroom disruptions, teacher burnout, and learning loss.
-                Most interventions happen <em>after</em> problems occur, not
-                before.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Insight
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                Short regulation exercises (breathing resets) can restore nervous
-                system balance quickly. However, schools lack fast, accessible
-                tools teachers can deploy between classes.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Product
-              </h3>
-              <p className="text-white/70 leading-relaxed mb-2">
-                A mobile app delivering guided 60-second nervous system resets.
-                Designed for students between classes, teachers during stress
-                spikes, and classrooms needing quick regulation resets.
-              </p>
-            </div>
-
-            <FlowDiagram
-              steps={[
-                {
-                  label: "Problem",
-                  detail: "Dysregulated classrooms with no proactive tools",
-                },
-                {
-                  label: "Insight",
-                  detail: "60-second breathing resets restore regulation",
-                },
-                {
-                  label: "Product",
-                  detail: "Mobile app with guided micro-resets",
-                },
-                {
-                  label: "Outcome",
-                  detail: "Faster teacher adoption through speed & simplicity",
-                },
-              ]}
-            />
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                MVP
-              </h3>
-              <ul className="space-y-2 text-white/70">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Guided breathing resets
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Short regulation prompts
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Minimal UI to reduce cognitive load
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Key Product Decisions
-              </h3>
-              <ul className="space-y-2 text-white/70">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Exercises under 60 seconds — fits real school schedules
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Minimal interface — avoid overwhelming dysregulated users
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Regulation first, not meditation — practical classroom use
-                </li>
-              </ul>
-            </div>
-
-            {/* Hardest Decision */}
-            <div className="bg-brand-gold/[0.04] border border-brand-gold/20 rounded-xl p-8">
-              <h3 className="text-lg font-semibold text-brand-gold mb-4">
-                Hardest Product Decision
-              </h3>
-              <p className="text-white/80 leading-relaxed italic">
-                &ldquo;The hardest product decision was designing the app for
-                extremely short sessions rather than deeper meditation features.
-                While longer exercises may provide greater benefits, the reality
-                of school environments is that teachers and students rarely have
-                more than a minute between activities. Prioritizing speed and
-                accessibility made adoption more likely.&rdquo;
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-4">
-                Metrics to Track
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                <MetricPill label="Daily active users" />
-                <MetricPill label="Exercise completion rate" />
-                <MetricPill label="Reported stress reduction" />
-                <MetricPill label="Teacher usage frequency" />
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Future Opportunities
-              </h3>
-              <ul className="space-y-2 text-white/70">
-                <li className="flex items-start gap-3">
-                  <span className="text-white/30 mt-1 text-sm">▸</span>
-                  Integration with school districts
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-white/30 mt-1 text-sm">▸</span>
-                  Classroom dashboard for administrators
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-white/30 mt-1 text-sm">▸</span>
-                  Teacher stress monitoring tools
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study 2: PNEUOMA Capture */}
-      <section
-        className="py-20 border-t border-white/[0.06] bg-gradient-to-b from-brand-purple/[0.03] to-transparent"
-        id="capture"
-      >
-        <div className="max-w-4xl mx-auto container-padding">
-          <div className="mb-2">
-            <span className="text-brand-gold/60 text-xs font-semibold uppercase tracking-[0.2em]">
-              Case Study 02
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 font-serif tracking-tight">
-            PNEUOMA Capture
-          </h2>
-          <p className="text-xl text-white/50 mb-10">
-            Voice-Based Incident Documentation
-          </p>
-
-          <div className="space-y-10">
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Problem
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                Teachers and administrators spend large amounts of time
-                documenting incidents. MTSS and behavioral documentation systems
-                are slow and frustrating — resulting in lost teaching time,
-                delayed documentation, and inconsistent reporting.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Insight
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                Speech is the fastest way for humans to record information.
-                Teachers could speak incidents instead of typing them.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Product
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                Voice-based incident capture that automatically structures
-                reports. Teachers describe what happened; AI converts speech into
-                structured documentation.
-              </p>
-            </div>
-
-            <FlowDiagram
-              steps={[
-                {
-                  label: "Problem",
-                  detail: "Slow, frustrating incident documentation",
-                },
-                {
-                  label: "Insight",
-                  detail: "Speech is the fastest input modality",
-                },
-                {
-                  label: "Product",
-                  detail: "Voice → AI-structured incident reports",
-                },
-                {
-                  label: "Outcome",
-                  detail: "Hours saved per week on documentation",
-                },
-              ]}
-            />
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                MVP
-              </h3>
-              <ul className="space-y-2 text-white/70">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Voice input capture
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  AI structuring of raw speech
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Exportable incident documentation
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Key Product Decisions
-              </h3>
-              <ul className="space-y-2 text-white/70">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Privacy-first AI architecture — student data protection
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Simple interface — designed for stressed educators
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Structured output — compatible with school documentation systems
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-brand-gold/[0.04] border border-brand-gold/20 rounded-xl p-8">
-              <h3 className="text-lg font-semibold text-brand-gold mb-4">
-                Hardest Product Decision
-              </h3>
-              <p className="text-white/80 leading-relaxed italic">
-                &ldquo;The hardest product decision was balancing automation with
-                privacy. Voice transcription and AI structuring improve
-                efficiency, but student data must remain protected. This required
-                designing a privacy-first architecture rather than relying on
-                standard cloud AI tools.&rdquo;
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-4">
-                Metrics to Track
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                <MetricPill label="Time saved per report" />
-                <MetricPill label="Teacher adoption" />
-                <MetricPill label="Reports generated per week" />
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Future Opportunities
-              </h3>
-              <ul className="space-y-2 text-white/70">
-                <li className="flex items-start gap-3">
-                  <span className="text-white/30 mt-1 text-sm">▸</span>
-                  MTSS integration
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-white/30 mt-1 text-sm">▸</span>
-                  School district reporting dashboards
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-white/30 mt-1 text-sm">▸</span>
-                  Behavior pattern analytics
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study 3: Playground */}
-      <section className="py-20 border-t border-white/[0.06]" id="playground">
-        <div className="max-w-4xl mx-auto container-padding">
-          <div className="mb-2">
-            <span className="text-brand-gold/60 text-xs font-semibold uppercase tracking-[0.2em]">
-              Case Study 03
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 font-serif tracking-tight">
-            Playground
-          </h2>
-          <p className="text-xl text-white/50 mb-10">
-            Play-Based Educational Game
-          </p>
-
-          <div className="space-y-10">
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Problem
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                Parents want kids to learn while playing. But most games are
-                either entertainment-only or rigid educational software that
-                kills engagement.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Insight
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                Children engage deeply with open play environments like
-                Minecraft. Teachers should be able to embed learning objectives
-                directly into gameplay.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Product
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                An open educational world where teachers define learning
-                tasks — math challenges, spelling quests, problem-solving
-                missions — inside an open play environment.
-              </p>
-            </div>
-
-            <FlowDiagram
-              steps={[
-                {
-                  label: "Problem",
-                  detail: "Games = fun OR educational, not both",
-                },
-                {
-                  label: "Insight",
-                  detail: "Open play drives deep engagement",
-                },
-                {
-                  label: "Product",
-                  detail: "Teacher-configurable learning inside gameplay",
-                },
-                {
-                  label: "Outcome",
-                  detail: "Engagement + learning in a single experience",
-                },
-              ]}
-            />
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                MVP
-              </h3>
-              <ul className="space-y-2 text-white/70">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Open play environment
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Teacher-configurable learning prompts
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Play-based progress tracking
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Key Product Decisions
-              </h3>
-              <ul className="space-y-2 text-white/70">
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Play-first design — engagement before instruction
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Teacher input system — adaptable to classroom needs
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1 text-sm">▸</span>
-                  Parent involvement loop
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-brand-gold/[0.04] border border-brand-gold/20 rounded-xl p-8">
-              <h3 className="text-lg font-semibold text-brand-gold mb-4">
-                Hardest Product Decision
-              </h3>
-              <p className="text-white/80 leading-relaxed italic">
-                &ldquo;The hardest product decision was keeping the game
-                open-ended rather than tightly structured. Educational games
-                often lose engagement because they feel like assignments.
-                Allowing teachers to insert learning challenges inside
-                Playground preserved play while supporting learning
-                goals.&rdquo;
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-4">
-                Metrics to Track
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                <MetricPill label="Session length" />
-                <MetricPill label="Learning task completion" />
-                <MetricPill label="Parent participation" />
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-brand-gold mb-3">
-                Future Opportunities
-              </h3>
-              <ul className="space-y-2 text-white/70">
-                <li className="flex items-start gap-3">
-                  <span className="text-white/30 mt-1 text-sm">▸</span>
-                  School integrations
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-white/30 mt-1 text-sm">▸</span>
-                  Teacher content marketplace
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-white/30 mt-1 text-sm">▸</span>
-                  AI-generated learning quests
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section className="py-20 border-t border-white/[0.06]">
-        <div className="max-w-4xl mx-auto container-padding">
-          <h2 className="text-3xl font-bold text-white mb-8 font-serif text-center">
-            Skills Demonstrated
-          </h2>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-2">
             {[
-              "Product Strategy",
-              "User Problem Discovery",
-              "AI Product Development",
-              "Education Technology",
+              "AI Products",
+              "Education Systems",
+              "Workflow Automation",
+              "Regulation Tech",
               "Human-Centered Design",
-              "Workflow Optimization",
-              "MVP Scoping",
-              "Privacy Architecture",
-              "Decision-Making Under Constraints",
-            ].map((skill) => (
+              "Operational Problem Solving",
+            ].map((tag) => (
               <span
-                key={skill}
-                className="px-5 py-2.5 text-sm font-medium text-brand-gold border border-brand-gold/30 rounded-full bg-brand-gold/[0.04] hover:bg-brand-gold/10 transition-colors"
+                key={tag}
+                className="px-4 py-1.5 text-xs text-white/40 border border-white/[0.08] rounded-full"
               >
-                {skill}
+                {tag}
               </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Closing Statement */}
-      <section className="py-20 border-t border-white/[0.06] bg-gradient-to-b from-brand-purple/[0.04] to-black">
-        <div className="max-w-3xl mx-auto container-padding text-center">
-          <div className="mb-8">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" />
-              <span className="text-brand-gold text-2xl">✦</span>
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" />
-            </div>
+      {/* ── Systems Thinking Framework ── */}
+      <section className="py-16 border-b border-white/[0.06]">
+        <div className="max-w-4xl mx-auto container-padding">
+          <p className="text-center text-white/25 text-xs uppercase tracking-[0.3em] font-semibold mb-8">
+            How I think about product
+          </p>
+          <div className="flex flex-col md:flex-row items-stretch gap-0">
+            {[
+              {
+                label: "Environment",
+                detail:
+                  "Identify the real-world system where friction lives",
+                sub: "Schools, teams, workflows",
+              },
+              {
+                label: "Friction",
+                detail:
+                  "Isolate the specific constraint people work around",
+                sub: "Time, attention, regulation, clarity",
+              },
+              {
+                label: "System Design",
+                detail:
+                  "Build the minimum product that removes that friction",
+                sub: "Scope tight, ship fast, measure",
+              },
+              {
+                label: "Better Decisions",
+                detail:
+                  "People make faster, clearer decisions under constraints",
+                sub: "The product disappears; the outcome stays",
+              },
+            ].map((step, i, arr) => (
+              <div
+                key={i}
+                className="flex flex-col md:flex-row items-center flex-1"
+              >
+                <div className="bg-white/[0.02] border border-white/[0.08] rounded-lg p-5 flex-1 w-full text-center hover:border-brand-gold/20 transition-colors">
+                  <p className="text-brand-gold font-semibold text-[11px] uppercase tracking-[0.2em] mb-2">
+                    {step.label}
+                  </p>
+                  <p className="text-white/55 text-sm leading-relaxed mb-1.5">
+                    {step.detail}
+                  </p>
+                  <p className="text-white/25 text-xs">{step.sub}</p>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className="text-brand-gold/30 text-xl mx-2 my-2 md:my-0 rotate-90 md:rotate-0 select-none font-light">
+                    →
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          <p className="text-2xl md:text-3xl font-serif text-white/90 leading-relaxed mb-6">
-            &ldquo;I saw real-world problems, designed systems, and built the
-            products.&rdquo;
+        </div>
+      </section>
+
+      {/* ── Case Studies Divider ── */}
+      <div className="max-w-4xl mx-auto container-padding pt-16">
+        <div className="flex items-center gap-4">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
+          <span className="text-brand-gold/40 text-xs uppercase tracking-[0.3em] font-semibold">
+            Featured Case Studies
+          </span>
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
+        </div>
+      </div>
+
+      {/* ── Case Studies ── */}
+      {caseStudies.map((study, i) => (
+        <CaseStudySection key={study.id} study={study} even={i % 2 === 1} />
+      ))}
+
+      {/* ── Product Index ── */}
+      <section className="py-20 border-t border-white/[0.06]">
+        <div className="max-w-5xl mx-auto container-padding">
+          <div className="mb-12">
+            <p className="text-brand-gold/40 text-xs uppercase tracking-[0.3em] font-semibold mb-3">
+              Product Ecosystem
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight">
+              Everything I&apos;ve Built
+            </h2>
+          </div>
+
+          {/* Table header */}
+          <div className="hidden md:grid grid-cols-12 gap-4 pb-3 border-b border-white/[0.08] text-xs text-white/25 uppercase tracking-[0.15em] font-semibold">
+            <div className="col-span-3">Product</div>
+            <div className="col-span-2">Type</div>
+            <div className="col-span-2">Domain</div>
+            <div className="col-span-4">Description</div>
+            <div className="col-span-1 text-right">Status</div>
+          </div>
+
+          {/* Table rows */}
+          {productIndex.map((product) => (
+            <div
+              key={product.name}
+              className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-4 border-b border-white/[0.04] hover:bg-white/[0.01] transition-colors group"
+            >
+              <div className="md:col-span-3">
+                <p className="text-white/80 font-medium text-[15px] group-hover:text-white transition-colors">
+                  {product.name}
+                </p>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-white/35 text-sm">{product.type}</p>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-white/35 text-sm">{product.domain}</p>
+              </div>
+              <div className="md:col-span-4">
+                <p className="text-white/45 text-sm leading-relaxed">
+                  {product.description}
+                </p>
+              </div>
+              <div className="md:col-span-1 md:text-right">
+                <span
+                  className={`inline-block px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full ${
+                    product.status === "Shipped"
+                      ? "text-brand-gold/70 bg-brand-gold/[0.08] border border-brand-gold/15"
+                      : product.status === "Internal"
+                        ? "text-white/30 bg-white/[0.03] border border-white/[0.06]"
+                        : "text-white/40 bg-white/[0.04] border border-white/[0.08]"
+                  }`}
+                >
+                  {product.status}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Product Philosophy ── */}
+      <section className="py-20 border-t border-white/[0.06] bg-gradient-to-b from-white/[0.01] to-transparent">
+        <div className="max-w-3xl mx-auto container-padding">
+          <p className="text-brand-gold/40 text-xs uppercase tracking-[0.3em] font-semibold mb-3">
+            How I Build
           </p>
-          <p className="text-white/50 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Most PM candidates say &ldquo;I helped launch feature X.&rdquo; My
-            background as a Dean of Students and Athletic Director means I think
-            in systems, behavior, and real-world constraints — then I build
-            products to solve them.
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight mb-8">
+            Product Philosophy
+          </h2>
+          <div className="space-y-6 text-white/60 text-[16px] leading-[1.85]">
+            <p>
+              Every product I build starts with the same question:{" "}
+              <span className="text-white/80">
+                where are people losing time, attention, or clarity because the
+                system around them wasn&apos;t designed for how they actually
+                work?
+              </span>
+            </p>
+            <p>
+              My years inside schools taught me that the people closest to
+              problems — teachers, administrators, students — are operating
+              under constraints that software rarely accounts for. They
+              don&apos;t have 20 minutes to learn a new tool. They don&apos;t
+              have bandwidth to configure dashboards. They need something that
+              works in the next 60 seconds, under stress, with zero onboarding.
+            </p>
+            <p>
+              That constraint-first thinking shapes everything I build. I scope
+              tight, ship fast, and measure whether the product actually reduced
+              the friction it was designed to address. If it didn&apos;t, I cut
+              features — not add them.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Constraint-First",
+                text: "Understand the real limits people work under before designing anything.",
+              },
+              {
+                title: "Ship to Learn",
+                text: "Small scopes, fast delivery, measure the right thing. Features follow evidence.",
+              },
+              {
+                title: "Systems Over Features",
+                text: "Build the system that solves the category, not just the feature that patches the symptom.",
+              },
+            ].map((principle) => (
+              <div
+                key={principle.title}
+                className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6"
+              >
+                <h3 className="text-white/80 font-semibold text-sm mb-2">
+                  {principle.title}
+                </h3>
+                <p className="text-white/40 text-sm leading-relaxed">
+                  {principle.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-20 border-t border-white/[0.06]">
+        <div className="max-w-3xl mx-auto container-padding text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight mb-4">
+            Camryn Jackson
+          </h2>
+          <p className="text-white/40 text-lg mb-8">
+            Product Builder&ensp;·&ensp;Founder @ PNEUOMA&ensp;·&ensp;0→1
+            Systems Designer
           </p>
-          <a
-            href="mailto:camryn@pneuoma.com"
-            className="inline-block px-8 py-4 text-base font-semibold text-black bg-brand-gold rounded-lg hover:bg-brand-gold/90 transition-all duration-300 hover:scale-105"
-          >
-            Get in Touch
-          </a>
+          <p className="text-white/50 text-[15px] leading-relaxed max-w-xl mx-auto mb-10">
+            Open to Product, AI Product, and 0→1 product roles. Interested in
+            teams solving hard problems in education, AI, workflow systems, and
+            human-centered technology.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="mailto:camryncjackson@gmail.com"
+              className="px-8 py-3.5 text-sm font-semibold text-black bg-brand-gold rounded-lg hover:bg-brand-gold/90 transition-all duration-300"
+            >
+              camryncjackson@gmail.com
+            </a>
+            <a
+              href="https://www.linkedin.com/in/camrynjackson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3.5 text-sm font-semibold text-white/60 border border-white/15 rounded-lg hover:text-white hover:border-white/30 transition-all duration-300"
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
       </section>
     </div>
