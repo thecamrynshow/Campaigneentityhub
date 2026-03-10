@@ -522,6 +522,63 @@ export default function ProductPage() {
         </div>
       </section>
 
+      {/* ── Problems I'm Interested In ── */}
+      <section className="py-20 border-t border-white/[0.06]">
+        <div className="max-w-3xl mx-auto container-padding">
+          <p className="text-brand-gold/40 text-xs uppercase tracking-[0.3em] font-semibold mb-3">
+            What I Want to Work On
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight mb-6">
+            Problems I&apos;m Interested in Solving
+          </h2>
+          <p className="text-white/55 text-[16px] leading-[1.8] mb-10 max-w-2xl">
+            I&apos;m drawn to product roles where the core challenge is reducing
+            friction inside systems that people depend on daily — especially
+            where the constraints are real and the stakes are operational.
+          </p>
+
+          <div className="space-y-4 mb-12">
+            {[
+              "Tools that help people operate under real-world constraints — time, attention, regulation, and cognitive load",
+              "AI products that remove overhead from workflows, not add complexity to them",
+              "Systems that improve decision-making speed and clarity in high-pressure environments",
+              "Education technology that supports teachers and administrators rather than creating more administrative burden",
+              "Platforms that translate complex human behavior into structured, actionable insights",
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-4 py-3 border-b border-white/[0.04] last:border-0"
+              >
+                <span className="text-brand-gold/40 mt-1 text-xs">▸</span>
+                <p className="text-white/65 text-[15px] leading-relaxed">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-white/[0.02] border border-white/[0.08] rounded-lg p-6">
+            <p className="text-white/30 text-xs uppercase tracking-[0.2em] font-semibold mb-4">
+              Currently open to
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {[
+                "Product Manager roles",
+                "AI Product roles",
+                "0→1 product teams",
+              ].map((role) => (
+                <span
+                  key={role}
+                  className="px-4 py-2 text-sm text-white/70 border border-white/[0.1] rounded-lg"
+                >
+                  {role}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="py-20 border-t border-white/[0.06]">
         <div className="max-w-3xl mx-auto container-padding text-center">
