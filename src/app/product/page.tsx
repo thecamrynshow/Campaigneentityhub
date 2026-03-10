@@ -522,6 +522,82 @@ export default function ProductPage() {
         </div>
       </section>
 
+      {/* ── Products in the Wild ── */}
+      <section className="py-20 border-t border-white/[0.06]">
+        <div className="max-w-3xl mx-auto container-padding">
+          <p className="text-brand-gold/40 text-xs uppercase tracking-[0.3em] font-semibold mb-3">
+            Real-World Usage
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight mb-6">
+            Products in the Wild
+          </h2>
+          <p className="text-white/55 text-[16px] leading-[1.8] mb-8 max-w-2xl">
+            These aren&apos;t concepts. They&apos;re systems used by educators
+            and school leaders in real operational workflows.
+          </p>
+          <div className="space-y-4">
+            {[
+              "Regulation tools designed for real classroom transition windows — used by teachers between classes",
+              "Voice-based documentation tools that let educators submit incident reports in under two minutes",
+              "AI copilots built around real MTSS and behavioral documentation workflows",
+              "Outreach orchestration systems used internally to manage multi-channel partnership campaigns",
+              "Mobile apps shipped to the App Store and actively used for breathing, grounding, and focus",
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-4 py-3 border-b border-white/[0.04] last:border-0"
+              >
+                <span className="text-brand-gold/40 mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-gold/40 flex-shrink-0" />
+                <p className="text-white/60 text-[15px] leading-relaxed">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Rapid Product Experiments ── */}
+      <section className="py-20 border-t border-white/[0.06] bg-gradient-to-b from-white/[0.01] to-transparent">
+        <div className="max-w-3xl mx-auto container-padding">
+          <p className="text-brand-gold/40 text-xs uppercase tracking-[0.3em] font-semibold mb-3">
+            Exploration
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight mb-6">
+            Rapid Product Experiments
+          </h2>
+          <p className="text-white/55 text-[16px] leading-[1.8] mb-10 max-w-2xl">
+            In addition to larger systems, I regularly run small product
+            experiments to explore new workflows, AI capabilities, and user
+            behaviors. These experiments help identify opportunities quickly
+            before investing in full product builds.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              "AI documentation assistant for behavioral incident reporting",
+              "AI outreach agent for partnership discovery",
+              "Automated government contract quoting workflow",
+              "Teacher workflow simplification tools",
+              "Educational game prototypes with embedded learning objectives",
+              "Voice-to-structured-data pipelines for school environments",
+            ].map((experiment, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 py-3"
+              >
+                <span className="text-brand-gold/30 mt-0.5 text-xs font-mono">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-white/55 text-sm leading-relaxed">
+                  {experiment}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Problems I'm Interested In ── */}
       <section className="py-20 border-t border-white/[0.06]">
         <div className="max-w-3xl mx-auto container-padding">
@@ -579,6 +655,40 @@ export default function ProductPage() {
         </div>
       </section>
 
+      {/* ── How I Work ── */}
+      <section className="py-20 border-t border-white/[0.06] bg-gradient-to-b from-white/[0.01] to-transparent">
+        <div className="max-w-3xl mx-auto container-padding">
+          <p className="text-brand-gold/40 text-xs uppercase tracking-[0.3em] font-semibold mb-3">
+            Collaboration
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight mb-6">
+            How I Work With Teams
+          </h2>
+          <p className="text-white/55 text-[16px] leading-[1.8] mb-8 max-w-2xl">
+            I operate at the intersection of research, design, and
+            execution — moving between user environments and build
+            cycles to keep products grounded in real needs.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {[
+              "User research in real environments",
+              "System design and architecture",
+              "Product scoping and prioritization",
+              "Rapid prototyping",
+              "Feedback loops with real users",
+              "Cross-functional alignment",
+            ].map((capability) => (
+              <span
+                key={capability}
+                className="px-4 py-2 text-sm text-white/55 border border-white/[0.08] rounded-lg"
+              >
+                {capability}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="py-20 border-t border-white/[0.06]">
         <div className="max-w-3xl mx-auto container-padding text-center">
@@ -589,10 +699,9 @@ export default function ProductPage() {
             Product Builder&ensp;·&ensp;Founder @ PNEUOMA&ensp;·&ensp;0→1
             Systems Designer
           </p>
-          <p className="text-white/50 text-[15px] leading-relaxed max-w-xl mx-auto mb-10">
-            Open to Product, AI Product, and 0→1 product roles. Interested in
-            teams solving hard problems in education, AI, workflow systems, and
-            human-centered technology.
+          <p className="text-white/60 text-[17px] leading-relaxed max-w-2xl mx-auto mb-10 font-serif italic">
+            If you&apos;re building systems that help people make better
+            decisions under real-world constraints, I&apos;d love to talk.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
