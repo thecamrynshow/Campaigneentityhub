@@ -288,6 +288,33 @@ export const works: Work[] = [
     },
   },
   {
+    id: "pneuoma-capture",
+    slug: "pneuoma-capture",
+    title: "PNEUOMA Capture",
+    type: "app",
+    status: "released",
+    shortDescription: "Voice-first incident documentation for educators. Speak it. Structure it. Submit it.",
+    longDescription: "PNEUOMA Capture is a voice-first documentation tool where teachers speak what happened and AI converts it into structured, exportable incident reports. No typing, no forms — just speak and submit. Built with a privacy-first architecture to protect student data.",
+    theme: {
+      bg: "#1A1A2E",
+      fg: "#FFFFFF",
+      accent: "#D4AF37",
+      accent2: "#6B46C1",
+    },
+    coverImage: "/images/photos/pneuoma-capture-app-icon.png",
+    primaryCta: {
+      label: "Download on App Store",
+      url: "https://apps.apple.com/us/app/pneuoma-capture/id6759628903",
+    },
+    secondaryLinks: [],
+    creatorName: "Camryn Jackson",
+    alternateName: "Campaigne",
+    datePublished: "2026-03-01",
+    identifiers: {
+      appStoreUrl: "https://apps.apple.com/us/app/pneuoma-capture/id6759628903",
+    },
+  },
+  {
     id: "sovereignty",
     slug: "sovereignty",
     title: "SOVEREIGNTY",

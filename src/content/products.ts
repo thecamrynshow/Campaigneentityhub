@@ -79,7 +79,7 @@ export const caseStudies: CaseStudy[] = [
     name: "PNEUOMA Capture",
     tagline: "Voice-first incident documentation for educators",
     domain: "AI / Education",
-    url: "https://pneuoma.com",
+    url: "https://apps.apple.com/us/app/pneuoma-capture/id6759628903",
     problem:
       "Teachers and administrators lose hours each week to manual incident documentation. MTSS and behavioral reporting systems require extensive typing, form-filling, and context-switching — pulling educators away from students. Documentation gets delayed, quality drops, and behavioral patterns go undetected.",
     insight:
@@ -319,7 +319,7 @@ export const productIndex: ProductIndexItem[] = [
     type: "AI Tool",
     domain: "AI / Education",
     description: "Voice-to-structured-report incident documentation",
-    url: "https://pneuoma.com",
+    url: "https://apps.apple.com/us/app/pneuoma-capture/id6759628903",
     status: "Shipped",
   },
   {
