@@ -8,6 +8,7 @@ const siteUrl = getSiteUrl();
 
 const imdbUrl = "https://www.imdb.com/name/nm13817235/";
 const amazonPrimeUrl = "https://www.amazon.com/gp/video/detail/B0D86CSWWX/ref=atv_sr_fle_c_Tn74RA_1_1_1?sr=1-1&pageTypeIdSource=ASIN&pageTypeId=B0D862CL5F&qid=1766461841314";
+const tubiUrl = "https://tubitv.com/person/3e123e/camryn-jackson";
 
 export const metadata: Metadata = {
   title: "Acting & Film",
@@ -89,6 +90,14 @@ export default function ActingPage() {
                   Watch on Amazon Prime Video
                 </a>
                 <a
+                  href={tubiUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 border-2 border-brand-gold text-brand-gold rounded-md font-semibold hover:bg-brand-gold/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-2 focus:ring-offset-black"
+                >
+                  Watch Free on Tubi
+                </a>
+                <a
                   href={imdbUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -149,6 +158,22 @@ export default function ActingPage() {
                   className="text-brand-gold hover:underline text-base"
                 >
                   {imdbUrl}
+                </a>
+              </div>
+              <div className="bg-black/20 border border-brand-gold/20 rounded-lg p-6">
+                <h3 className="text-xl font-semibold text-brand-gold mb-2">
+                  Tubi
+                </h3>
+                <p className="text-white/60 mb-4 text-sm">
+                  Watch Bonus Trip for free on Tubi.
+                </p>
+                <a
+                  href={tubiUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-gold hover:underline text-base"
+                >
+                  {tubiUrl}
                 </a>
               </div>
             </div>
