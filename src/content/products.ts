@@ -262,6 +262,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Veluna",
     tagline: "Not a period tracker — a regulation system for the menstrual cycle",
     domain: "Health / Women's Wellness",
+    url: "https://apps.apple.com/us/app/veluna-period-cycle-care/id6758309019",
     problem:
       "Most menstrual health apps are basic period trackers — they log dates and predict the next period. They don't address the fact that the menstrual cycle affects energy, mood, creativity, and decision-making across the entire month. Women are left managing symptoms reactively instead of working with their cycle proactively. Meanwhile, the apps that do exist often sell user data or require accounts that compromise privacy.",
     insight:
@@ -379,7 +380,8 @@ export const productIndex: ProductIndexItem[] = [
     type: "Mobile App",
     domain: "Health / Women's Wellness",
     description: "Privacy-first menstrual cycle companion with regulation protocols and smart predictions",
-    status: "In Progress",
+    url: "https://apps.apple.com/us/app/veluna-period-cycle-care/id6758309019",
+    status: "Shipped",
   },
   {
     name: "Curriculum Analytics",

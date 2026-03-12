@@ -314,6 +314,33 @@ export const works: Work[] = [
       appStoreUrl: "https://apps.apple.com/us/app/sovereignty/id6758255804",
     },
   },
+  {
+    id: "veluna",
+    slug: "veluna",
+    title: "Veluna",
+    type: "app",
+    status: "released",
+    shortDescription: "Your Personal Cycle Companion. Privacy-first menstrual health with regulation protocols.",
+    longDescription: "Veluna is a privacy-first menstrual cycle companion that goes beyond period tracking. It provides smart predictions with confidence levels, phase-specific breathing protocols with haptic guidance, daily affirmations and superpower framing for each cycle phase, comprehensive symptom logging, educational content, and exportable PDF reports for healthcare providers. All data stays on-device.",
+    theme: {
+      bg: "#2D1B3D",
+      fg: "#FFFFFF",
+      accent: "#e8a4b8",
+      accent2: "#b8a4d4",
+    },
+    coverImage: "/images/photos/veluna-app-icon.png",
+    primaryCta: {
+      label: "Download on App Store",
+      url: "https://apps.apple.com/us/app/veluna-period-cycle-care/id6758309019",
+    },
+    secondaryLinks: [],
+    creatorName: "Camryn Jackson",
+    alternateName: "Campaigne",
+    datePublished: "2026-03-01",
+    identifiers: {
+      appStoreUrl: "https://apps.apple.com/us/app/veluna-period-cycle-care/id6758309019",
+    },
+  },
 ];
 
 export function getWorkBySlug(slug: string): Work | undefined {
